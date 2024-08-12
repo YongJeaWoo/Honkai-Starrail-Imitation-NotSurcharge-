@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/System/Game Input System/GameInputSystem.cs.meta
+guid: fc9b0a4c4a4d0314c93a063024dd9060
+========
+guid: eface9303917b15488b67ef95fa6391f
+>>>>>>>> Loomip:Assets/Scripts/Managers/Battle/TargetSelectionManager.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

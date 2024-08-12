@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Robo2 Battle Animator
+  m_Controller: {fileID: 9100000, guid: 3dbd857f5eb6f3b48b9183a3aa63d12b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: eff69862ce0bd2f4288c6a660cdc421e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0e388f50dce3f454397c7bff691fd8bd, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 352035e33ee9d3d43bc3429142dc88a5, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: af54b80ccb060cd4eae6375240c83e85, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d470505f9ab176e4997521db4c32d661, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 9b0455d303c672a4d82ee716a13d262e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: e7fd65d97805fe04589175e0723a1a22, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e26a49709a314ac4d83c214a3036844f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ce573ae119d8f2a40baf863905795a58, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1a8a62c62a4c5bf48a73603dcfab8cd7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3868395ece0264a448357c883cc6d3bd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ad452eab40f54d048973fc4b4902dcde, type: 2}

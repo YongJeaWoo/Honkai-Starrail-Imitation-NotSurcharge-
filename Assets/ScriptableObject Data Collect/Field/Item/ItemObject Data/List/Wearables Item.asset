@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56730c31039c8a0448f08f1df4bdd975, type: 3}
+  m_Name: Wearables Item
+  m_EditorClassIdentifier: 
+  itemsSOJList:
+  - {fileID: 11400000, guid: 39ac85a231ae1d74ea0b2782f5be81e6, type: 2}
+  - {fileID: 11400000, guid: 3d647fea044ece942a62333feff94722, type: 2}

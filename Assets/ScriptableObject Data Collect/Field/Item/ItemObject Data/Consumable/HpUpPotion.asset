@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 862d62f0391c5fd41a0f5929d4d011f4, type: 3}
+  m_Name: HpUpPotion
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 21300000, guid: 441b96122dfa96544ba1eb4f3305931a, type: 3}
+  itemName: "\uC18C\uB7C9\uC758 \uCCB4\uB825 \uBB3C\uC57D"
+  itemDescription: "\uCD5C\uB300 \uCCB4\uB825\uC5D0\uC11C 5% \uC99D\uAC00\uC2DC\uCF1C
+    \uC90D\uB2C8\uB2E4."
+  itemID: 1011
+  itemPrefab: {fileID: 4210923143042359300, guid: 857b67908d02da843805578a24ce5a40,
+    type: 3}
+  itemCount: 1
+  itemType: 0
+  consumableType: 0

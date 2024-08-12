@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dd9c4a7c09d1043964013e4ec3f316, type: 3}
+  m_Name: MuryotaisuSOJ
+  m_EditorClassIdentifier: 
+  hp: 900
+  maxhp: 900
+  damage: 80
+  acting: 67
+  ultimateGauge: 0
+  isUltimateAttack: 0
+  playerIcon: {fileID: 21300000, guid: 6252e7064915d904c817b10482a183c0, type: 3}
+  playerPrefab: {fileID: 1407112242662524009, guid: 2328ce5d022fd8b4abe28ae7d102aa06,
+    type: 3}
+  playerFullBody: {fileID: 21300000, guid: 8e7251c9c7fabf24d8f80cb44b10b642, type: 3}
