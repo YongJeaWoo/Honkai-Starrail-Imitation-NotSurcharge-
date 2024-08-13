@@ -8,6 +8,8 @@ public class Teleporter : MonoBehaviour
     [Header("¿¬°áµÈ Æ÷Å»")]
     [SerializeField] private Teleporter connectedPortal;
 
+    [SerializeField] private GameObject teleportPanel;
+
     private Transform teleportPos;
 
     private void Start()
@@ -29,7 +31,9 @@ public class Teleporter : MonoBehaviour
 
     private IEnumerator TeleportCoroutine(GameObject player, Transform teleportTrans)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        teleportPanel.SetActive(true);
+        yield return new WaitForSeconds(1f);
 
         CharacterController cc = player.GetComponent<CharacterController>();
 
@@ -38,8 +42,12 @@ public class Teleporter : MonoBehaviour
         player.transform.rotation = teleportTrans.rotation;
         cc.enabled = true;
 
+        yield return new WaitForSeconds(1f);
+
         var popUp = PopupManager.Instance.InstantPopUp(area.popUpText);
         var panel = popUp.GetComponentInChildren<AlramPanel>();
         panel.SetAlramText($"{area.areaName}");
+
+        teleportPanel.SetActive(false);
     }
 }

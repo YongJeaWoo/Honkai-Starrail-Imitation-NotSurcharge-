@@ -16,8 +16,6 @@ public class BattleSystem : MonoBehaviour
 
     private TargetUISystem targetUISystem;
 
-    private bool allPlayersDead = false;
-
     private void Awake()
     {
         InitValues();
@@ -55,10 +53,12 @@ public class BattleSystem : MonoBehaviour
         {
             if (turnType == E_TurnBase.Player && battler is BattleCharacterState)
             {
+                Debug.Log("플레이어 턴 : " + battler);
                 (battler as BattleCharacterState).DecreaseActionPoint();
             }
             else if (turnType == E_TurnBase.Enemy && battler is BattleFSMController)
             {
+                Debug.Log("적 턴: " + battler);
                 battler.DecreaseActionPoint();
             }
         }
@@ -69,8 +69,6 @@ public class BattleSystem : MonoBehaviour
     protected virtual void AdvanceTurn()
     {
         PlayerAllDead();
-
-        if (allPlayersDead) return;
 
         // 이전 턴의 이벤트 구독 해제
         if (currentBattler != null)
@@ -154,7 +152,7 @@ public class BattleSystem : MonoBehaviour
     {
         var players = playerBattleSystem.GetPlayerList();
 
-        allPlayersDead = true;
+        bool allDead = true;
 
         foreach (var player in players)
         {
@@ -162,13 +160,13 @@ public class BattleSystem : MonoBehaviour
 
             if (state.IsAlive)
             {
-                allPlayersDead = false;
+                allDead = false;
                 break;
             }
         }
 
-        if (allPlayersDead)
-        {           
+        if (allDead)
+        {
             PopupManager.Instance.InstantPopUp(deadPanel);
         }
     }
@@ -181,3 +179,5 @@ public class BattleSystem : MonoBehaviour
 
     public void GatAdvanceTurn() => AdvanceTurn();
 }
+
+

@@ -25,9 +25,6 @@ public class UiSystem : MonoBehaviour
     private Vector3 startPosition;
     private Vector3 endPosition;
 
-    [Header("보스 UI 목록")]
-    [SerializeField] private GameObject bossUI;
-
     private void Awake()
     {
         playerBattleSystem = GetComponent<PlayerBattleSystem>();
@@ -77,6 +74,7 @@ public class UiSystem : MonoBehaviour
     private void SetBattleUI()
     {
         areas = playerUI.GetComponentsInChildren<CharacterArea>();
+        for (int i = 0; i < areas.Length; i++) Debug.Log(areas[i].name);
 
         foreach (var area in areas)
         {
@@ -123,7 +121,7 @@ public class UiSystem : MonoBehaviour
         var hpText = areas[number].GetHpText();
         hpText.text = players[number].health.GetCurrentHp().ToString("F0");
         health.SetInitSliders(hpSlider, effectSlider, hpText);
-
+        
         // 쿨타임 이미지 설정
         var coolImage = areas[number].GetCoolTimeImage();
         coolImage.fillAmount = players[number].UltimateGauge;
@@ -139,27 +137,6 @@ public class UiSystem : MonoBehaviour
         ultimateButton.onClick.AddListener(() => ChangeUltimateButton(number));
 
         areas[number].gameObject.SetActive(true);
-    }
-
-    public void SetBossUI()
-    {
-        var bossHealth = FindObjectsOfType<BossHealth>().FirstOrDefault(bh => bh.gameObject.activeSelf);
-
-        if (bossHealth != null)
-        {
-            var bossSlider = bossUI.GetComponent<Slider>();
-            var effectSlider = bossSlider.transform.GetChild(1).GetComponent<Slider>();
-            var hpTextTransform = bossSlider.transform.GetChild(1).GetChild(0).GetChild(2);
-            var hpText = hpTextTransform.GetComponent<TextMeshProUGUI>();
-
-            bossHealth.SetInitSliders(bossSlider, effectSlider, hpText);
-
-            var currentHp = bossHealth.GetCurrentHp();
-
-            bossUI.SetActive(true);
-
-            hpText.text = currentHp.ToString("F0");
-        }
     }
 
     public void RefreshHP(int playerIndex, float hp, float maxHp)

@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleBossSkill2State : BattleBossState
-{ 
+{
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private Transform buttlePos;
+
     public void AllTarget()
     {
         EnemyBattleSystem enemyBattleSystem = controller.GetBattleSystem().GetEnemySystem();
@@ -12,7 +16,7 @@ public class BattleBossSkill2State : BattleBossState
         foreach (var player in playerList)
         {
             // 플레이어의 위치로 총알을 발사
-            GameObject bullet = Instantiate(controller.GatButtleObj(), controller.GetButtlePos().position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, buttlePos.position, Quaternion.identity);
             StartCoroutine(MoveBullet(bullet, player));
         }
     }
@@ -28,12 +32,12 @@ public class BattleBossSkill2State : BattleBossState
             bullet.transform.position = Vector3.MoveTowards(bullet.transform.position, targetPosition, Time.deltaTime * 30);
             yield return null;
         }
-        
+
         // 히트 프리펩 생성
         if (bullet != null)
         {
             // 폭발 효과 생성
-            GameObject explosion = Instantiate(controller.GatExplosionObj(), bullet.transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionPrefab, bullet.transform.position, Quaternion.identity);
             Destroy(bullet);
 
             // 폭발 프리팹 삭제를 위한 대기

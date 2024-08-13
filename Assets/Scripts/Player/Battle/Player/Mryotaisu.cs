@@ -72,8 +72,8 @@ public class Mryotaisu : BattleCharacterState, IActionButton
         Debug.Log("서포트 스킬 발동");
 
         // 서포트 스킬 (힐)
-        var maxHp = health.GetMaxHp();
-        float healAmount = maxHp * 0.2f;
+        var currentHp = health.GetCurrentHp();
+        float healAmount = currentHp * 0.2f;
 
         selectedTarget.health.HpUp(healAmount);
 
@@ -169,8 +169,8 @@ public class Mryotaisu : BattleCharacterState, IActionButton
             Animator.SetTrigger("Battle Ultimate");
 
             // 모든 플레이어에게 힐 적용
-            var maxHp = health.GetMaxHp();
-            float healAmount = maxHp * 0.2f;
+            var currentHp = health.GetCurrentHp();
+            float healAmount = currentHp * 0.2f;
 
             foreach (var target in allSelectedTarget)
             {

@@ -22,8 +22,6 @@ public class MeleeAttack : CharacterAttack
     public override void AttackHitAnimationEvent()
     {
         AudioManager.instance.EffectPlay(attackSound);
-        AudioManager.instance.EffectPlay(attackSFXSound);
-
         Collider[] hits = Physics.OverlapSphere(attackTransform.position, attackRadius, targetLayer);
         Collider closestHit = null;
         float closestDistasnce = float.MaxValue;

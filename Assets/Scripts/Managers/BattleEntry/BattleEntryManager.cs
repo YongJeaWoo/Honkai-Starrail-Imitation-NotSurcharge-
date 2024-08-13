@@ -393,5 +393,4 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
 
     public bool SetBattle(bool isOn) => isBattle = isOn;
     public bool GetBattle() => isBattle;
-    public EnemyZone GetEnemyZone() => battleZone;
 }

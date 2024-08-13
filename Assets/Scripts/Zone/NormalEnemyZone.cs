@@ -127,4 +127,6 @@ public class NormalEnemyZone : EnemyZone
     }
 
     public Transform[] GetSpawnPos() => spawnPos;
+
+    public void CharacterSkillCall() => enemyCount--;
 }

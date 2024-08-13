@@ -38,8 +38,6 @@ public class EnemyBattleSystem : MonoBehaviour
 
         // 霉 其捞瘤 利 积己
         SpawnEnemiesForPage();
-
-        battleSystem.GetUiSystem().SetBossUI();
     }
 
     // 泅犁 其捞瘤狼 利 积己

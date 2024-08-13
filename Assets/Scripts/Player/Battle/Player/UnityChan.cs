@@ -12,6 +12,8 @@ public class UnityChan : BattleCharacterState, IActionButton
     {
         base.StartTurn();
 
+        Debug.Log(name + "의 턴입니다.");
+
         if (isUltimateReady)
         {
             uiSystem.UseUltimate(PlayerUltimateSprite);
@@ -28,12 +30,14 @@ public class UnityChan : BattleCharacterState, IActionButton
         base.BasicAttack();
 
         selectedTarget = SelectTarget();
-
         if (selectedTarget == null)
         {
             Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
+
+        // 공격1 로직
+        Debug.Log("기본 공격 발동");
 
         // 캐릭터를 몬스터 앞으로 이동
         Vector3 targetPosition = selectedTarget.transform.position;
@@ -59,10 +63,12 @@ public class UnityChan : BattleCharacterState, IActionButton
             return; // 타겟이 선택되지 않았으면 반환
         }
 
+        // 공격2 로직
+        Debug.Log("(서포트)스킬 발동");
+
         // 캐릭터를 몬스터 앞으로 이동
         Vector3 targetPosition = selectedTarget.transform.position;
         targetPosition.y -= 0.4f;
-
         StartCoroutine(MoveToTarget(targetPosition, "Battle Skill", 5f));
 
         ChargeUltimateGauge(0.3f);
@@ -124,11 +130,8 @@ public class UnityChan : BattleCharacterState, IActionButton
         }
 
         Vector3 adjustedTargetPosition = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-
         animator.SetFloat("Battle Move", 1f);
-
         float currentDistance = Vector3.Distance(transform.position, adjustedTargetPosition);
-
         while (currentDistance > stopDistance)
         {
             Vector3 direction = (adjustedTargetPosition - transform.position).normalized;
@@ -160,7 +163,6 @@ public class UnityChan : BattleCharacterState, IActionButton
         // 선택된 타겟이 BattleEnemyFSMController 타입인지 확인 후 Hit 메서드 호출
         if (selectedTarget is BattleFSMController)
         {
-            AudioManager.instance.EffectPlay(attackSFXSound);
             (selectedTarget as BattleFSMController).Hit(Damage);
         }
     }
@@ -187,7 +189,6 @@ public class UnityChan : BattleCharacterState, IActionButton
         }
 
         Instantiate(BurstingEffectPrefabs, UltimatePos.position, Quaternion.Euler(90f, 0f, 0f));
-
         AudioManager.instance.EffectPlay(ultimateSFXSound);
     }
 }

@@ -41,9 +41,7 @@ public class BattleCharacterState : BattleBehaviourComponent
     [SerializeField] protected AudioClip attackSFXSound;
     [SerializeField] protected AudioClip skillSFXSound;
     [SerializeField] protected AudioClip ultimateSFXSound;
-    [SerializeField] private AudioClip hitSFXSound;
-    [SerializeField] private ParticleSystem hitParticle;
-    
+
     public Animator Animator { get => animator; set => animator = value; }
 
     // 능력치 설정
@@ -197,8 +195,6 @@ public class BattleCharacterState : BattleBehaviourComponent
         }
 
         health.HpDown(dmg);
-        AudioManager.instance.EffectPlay(hitSFXSound);
-        hitParticle.Play();
 
         if (health.GetCurrentHp() <= 0f)
         {

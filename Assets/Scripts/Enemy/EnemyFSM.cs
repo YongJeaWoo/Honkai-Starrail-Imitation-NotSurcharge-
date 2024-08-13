@@ -10,7 +10,6 @@ public enum E_EnemyState
 public class EnemyFSM : FSMController<E_EnemyState, EnemyState, EnemyFSM>, IHit
 {
     private EnemyZone myZone;
-
     protected void Start()
     {
         MyZoneCheck();

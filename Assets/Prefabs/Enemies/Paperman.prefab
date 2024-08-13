@@ -129,7 +129,7 @@ MonoBehaviour:
   - {fileID: 3672546420752724744}
   detectDistance: 0
   attackDistance: 0
-  targetName: Player
+  targetName: 
 --- !u!114 &6267095093382271845
 MonoBehaviour:
   m_ObjectHideFlags: 0
