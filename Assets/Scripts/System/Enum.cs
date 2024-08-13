@@ -60,6 +60,7 @@ public enum E_BattleBossState
     Attack,
     Skill1,
     Skill2,
+    Skill3,
     Hit,
     Die
 }

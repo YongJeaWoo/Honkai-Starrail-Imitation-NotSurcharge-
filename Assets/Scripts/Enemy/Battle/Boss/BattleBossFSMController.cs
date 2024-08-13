@@ -13,7 +13,10 @@ public class BattleBossFSMController : BattleFSMController
     public int attackCount;
 
     private Animator animator;
-    
+
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private GameObject explosionPrefab;
+    [SerializeField] private Transform buttlePos;
 
     // 상태 전환 메소드
     public void TransactionToState(E_BattleBossState state)
@@ -41,7 +44,43 @@ public class BattleBossFSMController : BattleFSMController
     {
         IsMyTurn = true;
         IsHit = false;
-        TransactionToState(E_BattleBossState.Attack);
+
+        if (attackCount < 2)
+        {
+            TransactionToState(E_BattleBossState.Attack);
+        }
+        else
+        {
+            attackCount = 0;
+
+            EnemyBattleSystem enemyBattleSystem = GetBattleSystem().GetEnemySystem();
+            bool canSummon = enemyBattleSystem.HasEmptySlots();
+
+            if (canSummon)
+            {
+                // 체력에 따라 생성 패턴 소환
+                if (health.GetCurrentHp() <= (health.GetMaxHp() / 2))
+                {
+                    TransactionToState(E_BattleBossState.Skill1);
+                }
+                else
+                {
+                    int randomSkill = Random.Range(0, 2);
+
+                    Debug.Log(randomSkill);
+
+                    if (randomSkill == 0)
+                    {
+                        TransactionToState(E_BattleBossState.Skill2);
+                    }
+                    else
+                    {
+                        TransactionToState(E_BattleBossState.Skill3);
+                    }
+                }
+
+            }
+        }
     }
 
     // 플레이어에게 공격을 받음
@@ -103,4 +142,8 @@ public class BattleBossFSMController : BattleFSMController
             }
         }
     }
+
+    public GameObject GatButtleObj() => bulletPrefab;
+    public GameObject GatExplosionObj() => explosionPrefab;
+    public Transform GetButtlePos() => buttlePos;
 }
