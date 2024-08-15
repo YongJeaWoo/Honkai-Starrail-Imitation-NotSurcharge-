@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePanel : InfoPanel
 {
@@ -17,5 +18,12 @@ public class GamePanel : InfoPanel
             animator.SetBool(isOpen, isOn);
             panelActivation.SetPanelActive(isOn);
         }
+    }
+
+    public void GoBackTitle()
+    {
+        Time.timeScale = 1;
+        BattleEntryManager.Instance.EnemyZone(false);
+        SceneManager.LoadSceneAsync("Title");
     }
 }

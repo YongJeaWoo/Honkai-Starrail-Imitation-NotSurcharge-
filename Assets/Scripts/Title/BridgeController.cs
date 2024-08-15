@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BridgeController : MonoBehaviour
 {
@@ -10,18 +12,24 @@ public class BridgeController : MonoBehaviour
     [SerializeField] private Vector3 spawnOffset;
     [SerializeField] private float spawnTime;
 
+    [Header("타이틀 텍스트")]
+    [SerializeField] private TextMeshProUGUI infoText;
+
     [Header("첫번째 프리팹")]
     [SerializeField] private GameObject firstBridgePrefab;
     [Header("두번째 프리팹")]
     [SerializeField] private GameObject secondsBridgePrefab;
     [Header("마지막 프리팹")]
     [SerializeField] private GameObject finalBridgePrefab;
-
+    
     [Header("다리 리스트 및 레이어")]
     [SerializeField] private List<GameObject> bridges = new List<GameObject>();
 
     [Header("메인 카메라")]
     [SerializeField] private Transform mainCamera;
+
+    [Header("페이드 아웃 패널")]
+    [SerializeField] private Image fadePanel;
 
     public int gamePhase = 1;
     private int bridgesSpawned;
@@ -52,6 +60,16 @@ public class BridgeController : MonoBehaviour
         canSpawnNextBridge = true;
         cameraPosition = Vector3.zero;
         cameraSpeed = spawnOffset.z / spawnTime;
+
+        fadePanel.color = new Color(0, 0, 0, 0);
+    }
+
+    private void OnEnable()
+    {
+        gamePhase = 1;
+        bridgesSpawned = 0;
+        spawnedLastBridge = false;
+        canSpawnNextBridge = true;
     }
 
     private void Update()
@@ -59,6 +77,11 @@ public class BridgeController : MonoBehaviour
         SpawnBridge();
         MoveCamera();
         DeleteBridge();
+    }
+
+    private void LateUpdate()
+    {
+        TitleTextInfomation();
     }
 
     private void SpawnBridge()
@@ -69,22 +92,27 @@ public class BridgeController : MonoBehaviour
             {
                 canSpawnNextBridge = false;
 
+                GameObject newBridge;
                 if (bridgesSpawned < 3)
                 {
-                    bridges.Add(Instantiate(firstBridgePrefab, spawner));
+                    newBridge = Instantiate(firstBridgePrefab, spawner);
                     bridgesSpawned++;
                 }
                 else
                 {
-                    bridges.Add(Instantiate(secondsBridgePrefab, spawner));
+                    newBridge = Instantiate(secondsBridgePrefab, spawner);
                     bridgesSpawned = 0;
                 }
+
+                newBridge.name = newBridge.name.Replace("(Clone)", "");
+
+                bridges.Add(newBridge);
 
                 foreach (GameObject bridge in bridges)
                 {
                     bridge.transform.parent = null;
                 }
-                
+
                 spawner.position += spawnOffset;
                 StartCoroutine(WaitForTime());
             }
@@ -95,7 +123,10 @@ public class BridgeController : MonoBehaviour
             {
                 spawnedLastBridge = true;
 
-                bridges.Add(Instantiate(finalBridgePrefab, spawner));
+                GameObject finalBridge = Instantiate(finalBridgePrefab, spawner);
+                finalBridge.name = finalBridge.name.Replace("(Clone)", ""); 
+
+                bridges.Add(finalBridge);
 
                 foreach (GameObject bridge in bridges)
                 {
@@ -134,6 +165,23 @@ public class BridgeController : MonoBehaviour
         }
     }
 
+    private void TitleTextInfomation()
+    {
+        switch (gamePhase)
+        {
+            case 1:
+                infoText.text = $"아무 키를 눌러 게임을 실행하세요.";
+                break;
+            case 2:
+                infoText.text = $"게임 시작";
+                break;
+            case 3:
+                infoText.text = string.Empty;
+                infoText.gameObject.SetActive(false);
+                break;
+        }
+    }
+
     private void DeleteBridge()
     {
         cameraRay.origin = mainCamera.transform.position;
@@ -158,7 +206,84 @@ public class BridgeController : MonoBehaviour
 
         if (gamePhase >= 3)
         {
-            //SceneManager.LoadSceneAsync("Game");
+            StartCoroutine(FadeOutAndStartGame());
         }
+    }
+
+    private IEnumerator FadeOutAndStartGame()
+    {
+        GameObject finalBridge = null;
+
+        foreach (GameObject bridge in bridges)
+        {
+            if (bridge.name == finalBridgePrefab.name)
+            {
+                finalBridge = bridge;
+                break;
+            }
+        }
+
+        if (finalBridge != null)
+        {
+            var door = finalBridge.transform.GetChild(0).GetChild(0);
+            if (door != null)
+            {
+                var doorAnimator = door.GetComponent<Animator>();
+                if (doorAnimator != null)
+                {
+                    AnimatorStateInfo stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+                    if (stateInfo.IsName("None"))
+                    {
+                        doorAnimator.SetTrigger("Open");
+
+                        while (!stateInfo.IsName("Open"))
+                        {
+                            stateInfo = doorAnimator.GetCurrentAnimatorStateInfo(0);
+                            yield return null; 
+                        }
+
+                        AnimatorClipInfo[] clipInfoArray = doorAnimator.GetCurrentAnimatorClipInfo(0);
+                        if (clipInfoArray.Length > 0)
+                        {
+                            AnimatorClipInfo clipInfo = clipInfoArray[0];
+                            float doorAnimationLength = clipInfo.clip.length;
+
+                            float fadeStartTime = doorAnimationLength - 0.2f;
+                            fadeStartTime = Mathf.Max(0, fadeStartTime);
+
+                            yield return new WaitForSeconds(fadeStartTime);
+
+                            float fadeDuration = 1f;
+                            float elapsedTime = 0f;
+
+                            Color panelColor = fadePanel.color;
+
+                            while (elapsedTime < fadeDuration)
+                            {
+                                elapsedTime += Time.deltaTime;
+                                panelColor.a = Mathf.Clamp01(elapsedTime / fadeDuration);
+                                fadePanel.color = panelColor;
+                                yield return null;
+                            }
+
+                            StartGame();
+                        }
+                        else
+                        {
+                            Debug.LogError("No animation clip info found for the door.");
+                        }
+                    }
+                    else
+                    {
+                        Debug.LogError("Door is not in the expected 'None' state.");
+                    }
+                }
+            }
+        }
+    }
+
+    private void StartGame()
+    {
+        SceneManager.LoadSceneAsync("Game");
     }
 }

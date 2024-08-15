@@ -5,6 +5,13 @@ public class TitleController : MonoBehaviour
 {
     [SerializeField] private BridgeController bridgeController;
 
+    private bool isCoroutineRunning = false;
+
+    private void OnEnable()
+    {
+        isCoroutineRunning = false;
+    }
+
     private void Update()
     {
         InputKey();
@@ -12,7 +19,7 @@ public class TitleController : MonoBehaviour
 
     private void InputKey()
     {
-        if (IsAnyKey())
+        if (IsAnyKey() && !isCoroutineRunning)
         {
             StartCoroutine(nameof(TimerCoroutine));
         }
@@ -20,8 +27,11 @@ public class TitleController : MonoBehaviour
 
     private IEnumerator TimerCoroutine()
     {
+        isCoroutineRunning = true;
         yield return new WaitForSeconds(1.5f);
         bridgeController.NextPhase();
+        yield return new WaitForSeconds(1.5f);
+        isCoroutineRunning = false;
     }
 
     private bool IsAnyKey()

@@ -314,6 +314,12 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
         }
     }
 
+    public void EnemyZone(bool isOn)
+    {
+        var zone = transform.GetChild(0).gameObject;
+        zone.SetActive(isOn);
+    }
+
     private IEnumerator BattleEnd()
     {
         isBattle = false;
