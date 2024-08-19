@@ -12,8 +12,6 @@ public class AcquireChan : BattleCharacterState, IActionButton
     {
         base.StartTurn();
 
-        Debug.Log(name + "의 턴입니다.");
-
         if (isUltimateReady)
         {
             uiSystem.UseUltimate(PlayerUltimateSprite);
@@ -30,9 +28,9 @@ public class AcquireChan : BattleCharacterState, IActionButton
         base.BasicAttack();
 
         selectedTarget = SelectTarget();
+
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
@@ -53,7 +51,6 @@ public class AcquireChan : BattleCharacterState, IActionButton
         selectedTarget = SelectTarget();
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
@@ -78,11 +75,8 @@ public class AcquireChan : BattleCharacterState, IActionButton
 
             if (allSelectedTarget == null)
             {
-                Debug.Log("타겟이 선택되지 않았습니다.");
                 return; // 타겟이 선택되지 않았으면 반환
             }
-
-            Debug.Log("필살기 스킬 발동");
 
             Animator.SetTrigger("Battle Ultimate");
 
@@ -108,7 +102,6 @@ public class AcquireChan : BattleCharacterState, IActionButton
     {
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
@@ -130,7 +123,6 @@ public class AcquireChan : BattleCharacterState, IActionButton
     {
         if (allSelectedTarget == null || allSelectedTarget.Count == 0)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return;
         }
 

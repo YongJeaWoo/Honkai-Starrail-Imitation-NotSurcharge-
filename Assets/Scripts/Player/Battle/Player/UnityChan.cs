@@ -12,8 +12,6 @@ public class UnityChan : BattleCharacterState, IActionButton
     {
         base.StartTurn();
 
-        Debug.Log(name + "의 턴입니다.");
-
         if (isUltimateReady)
         {
             uiSystem.UseUltimate(PlayerUltimateSprite);
@@ -32,12 +30,8 @@ public class UnityChan : BattleCharacterState, IActionButton
         selectedTarget = SelectTarget();
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
-
-        // 공격1 로직
-        Debug.Log("기본 공격 발동");
 
         // 캐릭터를 몬스터 앞으로 이동
         Vector3 targetPosition = selectedTarget.transform.position;
@@ -59,12 +53,8 @@ public class UnityChan : BattleCharacterState, IActionButton
 
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
-
-        // 공격2 로직
-        Debug.Log("(서포트)스킬 발동");
 
         // 캐릭터를 몬스터 앞으로 이동
         Vector3 targetPosition = selectedTarget.transform.position;
@@ -88,7 +78,6 @@ public class UnityChan : BattleCharacterState, IActionButton
 
             if (allSelectedTarget == null)
             {
-                Debug.Log("타겟이 선택되지 않았습니다.");
                 return; // 타겟이 선택되지 않았으면 반환
             }
 
@@ -125,7 +114,6 @@ public class UnityChan : BattleCharacterState, IActionButton
 
         if (controller == null)
         {
-            Debug.LogError("CharacterController 컴포넌트가 없습니다!");
             yield break;
         }
 
@@ -156,7 +144,6 @@ public class UnityChan : BattleCharacterState, IActionButton
     {
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
@@ -171,7 +158,6 @@ public class UnityChan : BattleCharacterState, IActionButton
     {
         if (allSelectedTarget == null || allSelectedTarget.Count == 0)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return;
         }
 

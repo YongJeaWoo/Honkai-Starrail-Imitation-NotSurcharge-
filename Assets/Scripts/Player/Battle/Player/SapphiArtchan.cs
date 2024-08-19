@@ -27,8 +27,6 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
     {
         base.StartTurn();
 
-        Debug.Log(name + "의 턴입니다.");
-
         if (isUltimateReady)
         {
             uiSystem.UseUltimate(PlayerUltimateSprite);
@@ -75,11 +73,8 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
 
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return;
         }
-
-        Debug.Log("서포트 스킬 발동");
 
         // 서포트 스킬 (순서 땡겨오기)
         selectedTarget.ActionPoint = 0f;
@@ -122,14 +117,10 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
         selectedTarget = SelectTarget();
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
         FaceTarget(selectedTarget.transform.position);
-
-        // 공격1 로직
-        Debug.Log("기본 공격 발동");
 
         Animator.SetTrigger("Battle Attack");
 
@@ -164,11 +155,8 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
 
             if (selectedTarget == null)
             {
-                Debug.Log("타겟이 선택되지 않았습니다.");
                 return; // 타겟이 선택되지 않았으면 반환
             }
-
-            Debug.Log("필살기 스킬 발동");
 
             UltimateTimeLine.Play();
 
@@ -204,7 +192,6 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
     {
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
@@ -219,7 +206,6 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
     {
         if (allSelectedTarget == null || allSelectedTarget.Count == 0)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return;
         }
 

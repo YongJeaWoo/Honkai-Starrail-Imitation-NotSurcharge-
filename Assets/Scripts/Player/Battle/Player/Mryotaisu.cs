@@ -15,8 +15,6 @@ public class Mryotaisu : BattleCharacterState, IActionButton
     {
         base.StartTurn();
 
-        Debug.Log(name + "의 턴입니다.");
-
         if (isUltimateReady)
         {
             var targetSystem = battleSystem.GetComponentInChildren<TargetSelectSystem>();
@@ -65,11 +63,8 @@ public class Mryotaisu : BattleCharacterState, IActionButton
 
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return;
         }
-
-        Debug.Log("서포트 스킬 발동");
 
         // 서포트 스킬 (힐)
         var currentHp = health.GetCurrentHp();
@@ -118,14 +113,10 @@ public class Mryotaisu : BattleCharacterState, IActionButton
 
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 
         FaceTarget(selectedTarget.transform.position);
-
-        // 공격1 로직
-        Debug.Log("기본 공격 발동");
 
         Animator.SetTrigger("Battle Attack");
 
@@ -160,11 +151,8 @@ public class Mryotaisu : BattleCharacterState, IActionButton
 
             if (allSelectedTarget == null || allSelectedTarget.Count == 0)
             {
-                Debug.Log("타겟이 선택되지 않았습니다.");
                 return; // 타겟이 선택되지 않았으면 반환
             }
-
-            Debug.Log("필살기 스킬 발동");
 
             Animator.SetTrigger("Battle Ultimate");
 
@@ -215,7 +203,6 @@ public class Mryotaisu : BattleCharacterState, IActionButton
     {
         if (selectedTarget == null)
         {
-            Debug.Log("타겟이 선택되지 않았습니다.");
             return; // 타겟이 선택되지 않았으면 반환
         }
 

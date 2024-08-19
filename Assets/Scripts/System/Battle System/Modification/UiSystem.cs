@@ -74,7 +74,6 @@ public class UiSystem : MonoBehaviour
     private void SetBattleUI()
     {
         areas = playerUI.GetComponentsInChildren<CharacterArea>();
-        for (int i = 0; i < areas.Length; i++) Debug.Log(areas[i].name);
 
         foreach (var area in areas)
         {

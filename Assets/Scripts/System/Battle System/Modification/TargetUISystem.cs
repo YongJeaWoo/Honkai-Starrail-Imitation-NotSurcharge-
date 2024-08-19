@@ -28,8 +28,6 @@ public class TargetUISystem : MonoBehaviour
         {
             GameObject uiClone = Instantiate(enemyCycleUI, canvasRectTransform);
             enemyCycleUIs.Add(uiClone);
-
-            Debug.Log(count);
         }
     }
 

@@ -13,10 +13,15 @@ public class IdleState : EnemyState
 
     public override void UpdateState()
     {
-        if (fsm.GetPlayer().GetComponentInChildren<CloakingSkill>() != null)
-        {
-            if (fsm.GetPlayer().GetComponentInChildren<CloakingSkill>().GetIsCloaking()) return;        
-        }
+        var player = fsm.GetPlayer();
+
+        // 플레이어 오브젝트가 null인지 확인
+        if (player == null) return;
+
+        var cloakingSkill = player.GetComponentInChildren<CloakingSkill>();
+
+        // CloakingSkill 컴포넌트가 있는지 확인
+        if (cloakingSkill != null && cloakingSkill.GetIsCloaking()) return;
 
         if (fsm.GetPlayerDistance() <= fsm.DetectDistance)
         {

@@ -31,14 +31,16 @@ public abstract class FSMController<TEnum, TState, TController> : MonoBehaviour
     public float AttackDistance { get => attackDistance; set => attackDistance = value; }
 
     #region Enemy State Changing
-    protected virtual void Awake()
+
+    protected virtual void OnEnable()
     {
         playerSystem = FindObjectOfType<SetPlayerSystem>();
+
+        player = playerSystem.GetPlayer();
     }
 
     protected virtual void Update()
     {
-        player = playerSystem.GetPlayer();
         CurrentState?.UpdateState();
     }
 

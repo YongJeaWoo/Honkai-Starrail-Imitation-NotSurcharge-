@@ -89,7 +89,6 @@ public class BattleCharacterState : BattleBehaviourComponent
         var enemyList = battleSystem.GetEnemySystem().GetEnemyList();
         if (enemyList == null || enemyList.Count == 0)
         {
-            Debug.Log("유효하지 않은 타겟 리스트입니다.");
             return null;
         }
 
@@ -111,7 +110,6 @@ public class BattleCharacterState : BattleBehaviourComponent
         var enemyList = battleSystem.GetEnemySystem().GetEnemyList();
         if (enemyList == null || enemyList.Count == 0)
         {
-            Debug.Log("유효하지 않은 타겟 리스트입니다.");
             return null;
         }
 
@@ -127,7 +125,6 @@ public class BattleCharacterState : BattleBehaviourComponent
 
         if (validTargets.Count == 0)
         {
-            Debug.Log("모든 적이 죽었습니다.");
             return null;
         }
 
@@ -143,7 +140,6 @@ public class BattleCharacterState : BattleBehaviourComponent
         var playerList = battleSystem.GetPlayerSystem().GetPlayerList();
         if (playerList == null || playerList.Count == 0 || selectedIndex < 0 || selectedIndex >= playerList.Count)
         {
-            Debug.Log("유효하지 않은 타겟 리스트입니다.");
             return null;
         }
 
@@ -156,7 +152,6 @@ public class BattleCharacterState : BattleBehaviourComponent
         var playerList = battleSystem.GetPlayerSystem().GetPlayerList();
         if (playerList == null || playerList.Count == 0)
         {
-            Debug.Log("유효하지 않은 타겟 리스트입니다.");
             return null;
         }
 
@@ -276,7 +271,6 @@ public class BattleCharacterState : BattleBehaviourComponent
 
         if (controller == null)
         {
-            Debug.LogError("CharacterController 컴포넌트가 없습니다!");
             yield break;
         }
 

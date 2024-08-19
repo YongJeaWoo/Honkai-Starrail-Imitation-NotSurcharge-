@@ -286,7 +286,6 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
 
         if (battleSystem == null)
         {
-            Debug.LogError("BattleSystem not found.");
             yield break;
         }
 
@@ -303,7 +302,7 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
 
     private void ToggleOtherZones(bool isOn)
     {
-        var allZones = FindObjectsOfType<EnemyZone>();
+        var allZones = GetComponentsInChildren<EnemyZone>(true);
 
         foreach (var zone in allZones)
         {
@@ -346,8 +345,6 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
                     yield return null;
                 }
 
-                ToggleOtherZones(true);
-
                 GameObject dummySystem = new GameObject($"Dummy System");
                 var system = dummySystem.AddComponent<PlayerBattleSystem>();
                 system.CharacterFieldSet();
@@ -376,6 +373,9 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
                 }
 
                 yield return new WaitForSeconds(0.5f);
+
+                ToggleOtherZones(true);
+
                 fadePanel.gameObject.SetActive(false);
 
                 yield break;

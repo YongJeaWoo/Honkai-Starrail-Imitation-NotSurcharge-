@@ -59,8 +59,6 @@ public class CharacterMovement : MonoBehaviour, IHit
         GetAxisMethod();
         ToggleRunClick();
         ToggleWalkClick();
-
-        Debug.Log($"Current Speed: {currentSpeed}");
         Movement();
         UpdateAnimator();
     }

@@ -87,6 +87,11 @@ public class EnemyBattleSystem : MonoBehaviour
             // 페이지 전환 시 현재 페이지의 적 생성 초기화
             StartCoroutine(NextCoroutine(currentPage));
             SpawnEnemiesForPage();
+
+            // 새로 생성된 적들을 turnBattlers에 추가
+            battleSystem.GetTurnList().AddRange(enemyCharacters);
+
+            // 턴을 진행하도록 호출
             battleSystem.GatAdvanceTurn();
             return;
         }

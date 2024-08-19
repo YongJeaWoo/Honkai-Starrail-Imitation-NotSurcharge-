@@ -53,12 +53,10 @@ public class BattleSystem : MonoBehaviour
         {
             if (turnType == E_TurnBase.Player && battler is BattleCharacterState)
             {
-                Debug.Log("플레이어 턴 : " + battler);
                 (battler as BattleCharacterState).DecreaseActionPoint();
             }
             else if (turnType == E_TurnBase.Enemy && battler is BattleFSMController)
             {
-                Debug.Log("적 턴: " + battler);
                 battler.DecreaseActionPoint();
             }
         }
@@ -78,7 +76,6 @@ public class BattleSystem : MonoBehaviour
 
         if (enemyBattleSystem.GetEnemyList().All(b => !b.IsAlive))
         {
-            Debug.Log("몬스터가 다 죽음");
             currentBattler.turnOver -= AdvanceTurn;
 
             enemyBattleSystem.OnPageCleared();
