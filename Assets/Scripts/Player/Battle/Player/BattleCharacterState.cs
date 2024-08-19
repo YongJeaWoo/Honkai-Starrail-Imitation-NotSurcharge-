@@ -283,7 +283,7 @@ public class BattleCharacterState : BattleBehaviourComponent
         animator.SetFloat("Battle Move", 1f);
 
         // 원래 위치로 이동
-        while (Vector3.Distance(transform.position, originalPosition) > 0.3f)
+        while (Vector3.Distance(transform.position, originalPosition) > 0.5f)
         {
             Vector3 direction = (originalPosition - transform.position).normalized;
             Vector3 move = direction * moveSpeed * Time.deltaTime;
@@ -294,7 +294,7 @@ public class BattleCharacterState : BattleBehaviourComponent
         }
 
         // 원래 회전으로 돌아감
-        while (Quaternion.Angle(transform.rotation, originalRotation) > 0.3f)
+        while (Quaternion.Angle(transform.rotation, originalRotation) > 0.5f)
         {
             transform.rotation = Quaternion.RotateTowards(transform.rotation, originalRotation, Time.deltaTime * moveSpeed * 10); // 회전 속도는 위치 이동 속도의 10배로 설정
             yield return null;

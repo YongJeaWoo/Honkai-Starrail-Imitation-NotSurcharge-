@@ -1963,8 +1963,8 @@ MonoBehaviour:
   enemyPos:
   - {fileID: 891292044}
   - {fileID: 1937032958}
-  - {fileID: 1679720504}
   - {fileID: 1663969425}
+  - {fileID: 1679720504}
   battleSystem: {fileID: 522434929}
 --- !u!114 &522434931
 MonoBehaviour:
@@ -3589,7 +3589,7 @@ Transform:
   m_GameObject: {fileID: 1080397679}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -1.5, y: 1, z: 6}
+  m_LocalPosition: {x: -1.5, y: 1, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5407,7 +5407,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1663969425}
   m_Layer: 0
-  m_Name: Enemy Pos 4
+  m_Name: Enemy Pos 3
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5438,7 +5438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679720504}
   m_Layer: 0
-  m_Name: Enemy Pos 3
+  m_Name: Enemy Pos 4
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

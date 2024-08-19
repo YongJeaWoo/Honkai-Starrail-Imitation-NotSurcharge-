@@ -129,6 +129,7 @@ public class BattleSystem : MonoBehaviour
             else
             {
                 targetUISystem.EnemyAllCycleUI(false);
+                targetUISystem.PlayerAllCycleUI(false);
                 playerBattleSystem.PlayerTurnEnd();
             }
 

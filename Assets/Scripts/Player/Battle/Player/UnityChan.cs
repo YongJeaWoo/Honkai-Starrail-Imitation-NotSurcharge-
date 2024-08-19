@@ -180,7 +180,7 @@ public class UnityChan : BattleCharacterState, IActionButton
             // 선택된 타겟이 BattleEnemyFSMController 타입인지 확인 후 Hit 메서드 호출
             if (target is BattleFSMController enemy)
             {
-                enemy.Hit(Damage);
+                enemy.Hit(Damage * 3f);
             }
             else
             {
