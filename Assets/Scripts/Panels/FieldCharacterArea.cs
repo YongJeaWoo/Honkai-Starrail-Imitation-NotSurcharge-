@@ -17,22 +17,17 @@ public class FieldCharacterArea : MonoBehaviour
     private CharacterStateSOJ soj;
     public CharacterStateSOJ Soj { get => soj; set => soj = value; }
 
-    private void Start()
+    public void SetCharacterUI(GameObject player)
     {
-        SetCharacterUI();
-    }
-
-    public void SetCharacterUI()
-    {
-        field = soj.PlayerPrefab.GetComponentInChildren<FieldState>();
-        var health = soj.PlayerPrefab.GetComponent<PlayerHealth>();
+        field = player.GetComponentInChildren<FieldState>();
+        var health = player.GetComponent<PlayerHealth>();
 
         health.InitializeSOJData();
         health.SetFieldSlider(characterHpSlider);
 
         var currentHp = health.GetCurrentHp();
         var maxHp = health.GetMaxHp();
-
+        Debug.Log(player.name + "HP : " + currentHp);
         float resultHp = currentHp / maxHp;
 
         characterHpSlider.value = resultHp;

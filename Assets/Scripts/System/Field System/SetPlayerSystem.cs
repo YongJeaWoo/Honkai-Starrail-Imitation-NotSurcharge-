@@ -75,6 +75,7 @@ public class SetPlayerSystem : MonoBehaviour
             InitUISet();
         }
 
+        uiSystem.UISet();
         SetInitPlayer();
     }
 

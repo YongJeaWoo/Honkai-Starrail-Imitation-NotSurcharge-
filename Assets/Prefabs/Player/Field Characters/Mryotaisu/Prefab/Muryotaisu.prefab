@@ -58215,8 +58215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac2fd8c16e06cf438df1f345ac196e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healParticle: {fileID: 0}
-  coolTime: 2
+  healParticle: {fileID: 9017484664307500583, guid: 8ef76cdffdaa10c4081b84925025558c,
+    type: 3}
 --- !u!1 &8987115318518833136
 GameObject:
   m_ObjectHideFlags: 0

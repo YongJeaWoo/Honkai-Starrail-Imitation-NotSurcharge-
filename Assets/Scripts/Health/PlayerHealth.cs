@@ -1,9 +1,11 @@
+using System.Diagnostics;
 using TMPro;
 using UnityEngine.UI;
 
 public class PlayerHealth : BaseHealth
 {
     private BattleCharacterState state;
+    private float saveHp;
 
     private void Start()
     {
@@ -32,4 +34,6 @@ public class PlayerHealth : BaseHealth
             hpText.text = currentHp.ToString();
         }
     }
+
+    public float GetSaveHealth() => saveHp;
 }

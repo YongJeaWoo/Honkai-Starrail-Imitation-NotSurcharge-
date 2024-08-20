@@ -20,6 +20,15 @@ public class SetPlayerUISystem : MonoBehaviour
         SetSOJ();
     }
 
+    public void UISet()
+    {
+        for (int i = 0; i < CharacterAreas.Length; i++)
+        {
+            int temp = setPlayerSystem.PartyIndex[i];
+            CharacterAreas[i].SetCharacterUI(setPlayerSystem.FieldPlayers[temp]);
+        }
+    }
+
     public void SetSOJ()
     {
         setPlayerSystem = GetComponent<SetPlayerSystem>();

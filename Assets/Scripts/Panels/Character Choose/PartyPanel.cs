@@ -169,9 +169,10 @@ public class PartyPanel : MonoBehaviour
     {
         UISystem.SetSOJ();
 
-        for (int i = 0; i < UISystem.CharacterAreas.Length; i++)
+        for (int i = 0; i < ChangeSystem.PartyIndex.Count; i++)
         {
-            UISystem.CharacterAreas[i].SetCharacterUI();
+            int temp = ChangeSystem.PartyIndex[i];
+            UISystem.CharacterAreas[i].SetCharacterUI(ChangeSystem.FieldPlayers[temp]);
         }
     }
 
