@@ -27,7 +27,6 @@ public class FieldCharacterArea : MonoBehaviour
 
         var currentHp = health.GetCurrentHp();
         var maxHp = health.GetMaxHp();
-        Debug.Log(player.name + "HP : " + currentHp);
         float resultHp = currentHp / maxHp;
 
         characterHpSlider.value = resultHp;
