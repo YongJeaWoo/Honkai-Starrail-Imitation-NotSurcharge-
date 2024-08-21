@@ -34,7 +34,7 @@ public class BattleCharacterState : BattleBehaviourComponent
     [SerializeField] private AudioClip turnSound;
     [SerializeField] private AudioClip[] hitSound;
     [SerializeField] private AudioClip deathSound;
-    [SerializeField] private AudioClip attackSound;
+    [SerializeField] protected AudioClip attackSound;
     [SerializeField] private AudioClip skillSound;
     [SerializeField] private AudioClip ultimateSound;
     [SerializeField] private AudioClip clearSound;
@@ -317,7 +317,7 @@ public class BattleCharacterState : BattleBehaviourComponent
     public virtual void BasicAttack()
     {
         uiSystem.ControllActingPoint(false);
-        AudioManager.instance.EffectPlay(attackSound);
+       
     }
 
     public virtual void SkillAttack()

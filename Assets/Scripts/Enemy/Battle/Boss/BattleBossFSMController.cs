@@ -101,8 +101,6 @@ public class BattleBossFSMController : BattleFSMController
             AudioManager.instance.EffectPlay(hitSound[randomIndex]);
         }
 
-        Debug.Log(currentHp);
-
         if (health.GetCurrentHp() <= 0)
         {
             TransactionToState(E_BattleBossState.Die);

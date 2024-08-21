@@ -124,6 +124,8 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
 
         Animator.SetTrigger("Battle Attack");
 
+        AudioManager.instance.EffectPlay(attackSound);
+
         ChargeUltimateGauge(0.2f);
 
         battleSystem.GetPlayerSystem().PlayerTurnEnd();

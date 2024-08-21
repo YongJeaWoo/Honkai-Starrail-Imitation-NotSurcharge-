@@ -937,11 +937,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   attackTransform: {fileID: 9147750491855723384}
   attackRadius: 1.1
   hitAngle: 0
-  bulletPrefab: {fileID: 1795072395756124, guid: d223fbf886f2aa4408426d093198ef12,
+  bulletPrefab: {fileID: 1795072395756124, guid: fcc47150e7d95644cb18baa161f71fd3,
     type: 3}
 --- !u!114 &1345948535027455408
 MonoBehaviour:

@@ -230,6 +230,8 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
                 }
 
                 glassImage.gameObject.SetActive(false);
+
+                AudioManager.instance.BgmPlay(BossSound);
             }
 
             yield return null;
@@ -238,7 +240,16 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
 
     private IEnumerator CaptureCoroutine()
     {
+        var normalZone = battleZone as NormalEnemyZone;
+        var poses = normalZone.GetSpawnPos();
+        foreach (var pos in poses)
+        {
+            pos.gameObject.SetActive(false);
+        }
+
         yield return new WaitForEndOfFrame();
+
+        AudioManager.instance.Stop();
 
         captureImage.gameObject.SetActive(true);
 

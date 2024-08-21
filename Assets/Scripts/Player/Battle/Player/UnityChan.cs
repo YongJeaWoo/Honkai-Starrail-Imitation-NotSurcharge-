@@ -39,6 +39,8 @@ public class UnityChan : BattleCharacterState, IActionButton
 
         StartCoroutine(MoveToTarget(targetPosition, "Battle Attack", 1f));
 
+        AudioManager.instance.EffectPlay(attackSound);
+
         ChargeUltimateGauge(0.2f);
 
         battleSystem.GetPlayerSystem().PlayerTurnEnd();
