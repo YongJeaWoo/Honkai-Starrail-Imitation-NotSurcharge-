@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 7665132269908570285}
   - component: {fileID: 8780015352425637231}
   - component: {fileID: 1373174153011254132}
-  - component: {fileID: 1930013321505052370}
-  - component: {fileID: 6267095093382271845}
-  - component: {fileID: -4965093811379039416}
-  - component: {fileID: -4048417046697755454}
-  - component: {fileID: 8090792393722596442}
-  - component: {fileID: 3672546420752724744}
+  - component: {fileID: 292270755655885993}
+  - component: {fileID: 5202852961769793228}
+  - component: {fileID: 1895340473553148434}
+  - component: {fileID: 1092752207810735544}
+  - component: {fileID: 1188605115174768857}
+  - component: {fileID: 6530813797623759501}
   m_Layer: 6
   m_Name: Paperman
   m_TagString: Enemy
@@ -109,7 +109,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &1930013321505052370
+--- !u!114 &292270755655885993
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,19 +118,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a03b529303db478459446c7428e8af32, type: 3}
+  m_Script: {fileID: 11500000, guid: d537e003f30c13a44add3a64a0fca46a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myStates:
-  - {fileID: 6267095093382271845}
-  - {fileID: -4965093811379039416}
-  - {fileID: -4048417046697755454}
-  - {fileID: 8090792393722596442}
-  - {fileID: 3672546420752724744}
+  - {fileID: 5202852961769793228}
+  - {fileID: 1895340473553148434}
+  - {fileID: 1092752207810735544}
+  - {fileID: 1188605115174768857}
+  - {fileID: 6530813797623759501}
   detectDistance: 0
   attackDistance: 0
-  targetName: 
---- !u!114 &6267095093382271845
+  targetName: Player
+--- !u!114 &5202852961769793228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,10 +139,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2709d6d893b0774ca75a1f412afd39a, type: 3}
+  m_Script: {fileID: 11500000, guid: 53cbcd7f74dc8204a9ecfa0dfeb5be84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4965093811379039416
+--- !u!114 &1895340473553148434
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,11 +151,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b386a8d3033bad749aa2eef55ecfa089, type: 3}
+  m_Script: {fileID: 11500000, guid: bc863d664f92fd54cb4594dceb82d443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   giveupSpeed: 0
---- !u!114 &-4048417046697755454
+--- !u!114 &1092752207810735544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,11 +164,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3f8f03ee55e254a8a81a57aa7f29d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b091c9f5c8aeee4eab03845ec7f114a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   detectSpeed: 0
---- !u!114 &8090792393722596442
+--- !u!114 &1188605115174768857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8873346a59ddf644db899a8ca257d083, type: 3}
+  m_Script: {fileID: 11500000, guid: a411975b1a412e442b31b5d27553c129, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer:
@@ -187,7 +187,7 @@ MonoBehaviour:
   attackRadius: 0
   hitAngle: 0
   bulletPrefab: {fileID: 0}
---- !u!114 &3672546420752724744
+--- !u!114 &6530813797623759501
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 46094718351208346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e819c8ddb922b4886d8f6b90ea123a, type: 3}
+  m_Script: {fileID: 11500000, guid: 3859d7201a2ece845a4274f3eed7f127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &71821396627220477

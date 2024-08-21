@@ -42,7 +42,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 330dc7a8b4fac6e45adcb8d2ae7affef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 2eea729a4e3f2da42af164a05628eccb, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -54,7 +54,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bridge
+  m_Name: FinalBridge
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:

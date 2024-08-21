@@ -764,11 +764,11 @@ GameObject:
   - component: {fileID: 8971742872137337458}
   - component: {fileID: 4972062158762345514}
   - component: {fileID: 6492788406767756684}
-  - component: {fileID: 2048274753055271162}
-  - component: {fileID: 2377529145194609023}
-  - component: {fileID: 6132160101339609150}
-  - component: {fileID: 4031246909503039412}
-  - component: {fileID: 3543106702419034261}
+  - component: {fileID: 7133221807894859774}
+  - component: {fileID: 457849847022318979}
+  - component: {fileID: 292181745982942655}
+  - component: {fileID: 2973084202051468178}
+  - component: {fileID: 1345948535027455408}
   m_Layer: 6
   m_Name: Robo1
   m_TagString: Enemy
@@ -877,15 +877,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myStates:
-  - {fileID: 2048274753055271162}
-  - {fileID: 2377529145194609023}
-  - {fileID: 6132160101339609150}
-  - {fileID: 4031246909503039412}
-  - {fileID: 3543106702419034261}
+  - {fileID: 7133221807894859774}
+  - {fileID: 457849847022318979}
+  - {fileID: 292181745982942655}
+  - {fileID: 2973084202051468178}
+  - {fileID: 1345948535027455408}
   detectDistance: 5
   attackDistance: 3
   targetName: Player
---- !u!114 &2048274753055271162
+--- !u!114 &7133221807894859774
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -894,10 +894,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591030417476671091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2709d6d893b0774ca75a1f412afd39a, type: 3}
+  m_Script: {fileID: 11500000, guid: ab4382c06b09275428545f72cae6e8cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2377529145194609023
+--- !u!114 &457849847022318979
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -906,11 +906,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591030417476671091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b386a8d3033bad749aa2eef55ecfa089, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d0ec0af2fd9f1c4ab9f1993858c6bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   giveupSpeed: 3
---- !u!114 &6132160101339609150
+--- !u!114 &292181745982942655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -919,11 +919,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591030417476671091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c3f8f03ee55e254a8a81a57aa7f29d6, type: 3}
+  m_Script: {fileID: 11500000, guid: a7ad188d097937943bab2c772c6f6bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   detectSpeed: 2.85
---- !u!114 &4031246909503039412
+--- !u!114 &2973084202051468178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -932,18 +932,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591030417476671091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8873346a59ddf644db899a8ca257d083, type: 3}
+  m_Script: {fileID: 11500000, guid: 30074ac52ed01dc41b7295dd51e020ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
   attackTransform: {fileID: 9147750491855723384}
   attackRadius: 1.1
   hitAngle: 0
-  bulletPrefab: {fileID: 1795072395756124, guid: fcc47150e7d95644cb18baa161f71fd3,
+  bulletPrefab: {fileID: 1795072395756124, guid: d223fbf886f2aa4408426d093198ef12,
     type: 3}
---- !u!114 &3543106702419034261
+--- !u!114 &1345948535027455408
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -952,6 +952,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8591030417476671091}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4e819c8ddb922b4886d8f6b90ea123a, type: 3}
+  m_Script: {fileID: 11500000, guid: 77283a218b479114ab6261b1efe0edff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
