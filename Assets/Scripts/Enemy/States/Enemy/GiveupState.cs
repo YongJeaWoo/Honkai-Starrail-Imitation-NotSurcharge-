@@ -27,6 +27,14 @@ public class GiveupState : EnemyState
     {
         if(fsm.GetPlayerDistance() <= fsm.DetectDistance)
         {
+            if (fsm.GetPlayer().GetComponentInChildren<CloakingSkill>() != null)
+            {
+                if (fsm.GetPlayer().GetComponentInChildren<CloakingSkill>().GetIsCloaking())
+                {
+                    return;
+                }
+            }
+
             fsm.TransitionToState(E_EnemyState.Detect);
             return;
         }

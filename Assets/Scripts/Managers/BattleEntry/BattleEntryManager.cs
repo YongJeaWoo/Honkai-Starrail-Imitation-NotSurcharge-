@@ -78,7 +78,7 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
     {
         ToggleOtherZones(false);
 
-        var system = FindAnyObjectByType<SetPlayerSystem>();
+        var system = FindObjectOfType<SetPlayerSystem>();
         var player = system.GetPlayer();
         PlayerDataManager.Instance.SetPlayerTransform(player.transform.position, player.transform.rotation);
 
@@ -194,6 +194,10 @@ public class BattleEntryManager : Singleton<BattleEntryManager>
     private IEnumerator GlassBrokenEffect(E_TurnBase turnBase)
     {
         ToggleOtherZones(false);
+
+        var system = FindObjectOfType<SetPlayerSystem>();
+        var player = system.GetPlayer();
+        PlayerDataManager.Instance.SetPlayerTransform(player.transform.position, player.transform.rotation);
 
         StartCoroutine(nameof(CaptureCoroutine));
 

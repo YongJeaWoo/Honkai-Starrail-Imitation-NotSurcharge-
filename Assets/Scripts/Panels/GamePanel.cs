@@ -14,10 +14,20 @@ public class GamePanel : InfoPanel
         {
             if (!isOn && panelActivation.IsAnyPanelActive()) return;
 
-            isOn = !isOn;
-            animator.SetBool(isOpen, isOn);
-            panelActivation.SetPanelActive(isOn);
+            PanelActive(isOn);
         }
+    }
+
+    public void OptionPanel()
+    {
+        PanelActive(isOn);
+    }
+
+    private void PanelActive(bool _isOn)
+    {
+        isOn = !_isOn;
+        animator.SetBool(isOpen, isOn);
+        panelActivation.SetPanelActive(isOn);
     }
 
     public void GoBackTitle()
