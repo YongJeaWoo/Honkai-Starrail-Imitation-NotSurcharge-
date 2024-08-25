@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class PlayerAllDeadPanel : MonoBehaviour
 {
-    private void Start()
+    protected virtual void Start()
     {
         StartCoroutine(InputKeyCoroutine());
     }
 
-    private IEnumerator InputKeyCoroutine()
+    protected virtual IEnumerator InputKeyCoroutine()
     {
         yield return new WaitForSeconds(2.5f);
 
@@ -25,7 +25,7 @@ public class PlayerAllDeadPanel : MonoBehaviour
         }
     }
 
-    private bool IsAnyKeyDown()
+    protected bool IsAnyKeyDown()
     {
         return Input.anyKeyDown || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2);
     }

@@ -36,7 +36,10 @@ public abstract class FSMController<TEnum, TState, TController> : MonoBehaviour
     {
         playerSystem = FindObjectOfType<SetPlayerSystem>();
 
-        player = playerSystem.GetPlayer();
+        if (playerSystem != null)
+        {
+            player = playerSystem.GetPlayer();
+        }
     }
 
     protected virtual void Update()

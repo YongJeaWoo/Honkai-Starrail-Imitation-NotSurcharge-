@@ -41832,6 +41832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshParent: {fileID: 7940483442369554502}
+  cloakingShader: {fileID: 4800000, guid: 2812875c182cf3743ad9f7557797e4a0, type: 3}
   cloakingTimer: 15
   transparency: 0.5
 --- !u!1 &8092649789201192076

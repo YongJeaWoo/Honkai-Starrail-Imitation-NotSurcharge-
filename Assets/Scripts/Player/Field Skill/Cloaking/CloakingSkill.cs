@@ -5,6 +5,8 @@ public class CloakingSkill : FieldSkill
 {
     [Header("마테리얼 부모 오브젝트")]
     [SerializeField] private GameObject meshParent;
+    [Header("클로킹 셰이더")]
+    [SerializeField] private Shader cloakingShader;
     [Header("클로킹 시간")]
     [SerializeField] private float cloakingTimer;
     [Header("투명도 수치")]
@@ -39,10 +41,11 @@ public class CloakingSkill : FieldSkill
 
         foreach (Renderer render in renderers)
         {
-            Material mat = render.material;
-            mat.shader = Shader.Find("Custom/Cloaking");
+            Material mat = new Material(cloakingShader);
+            mat.CopyPropertiesFromMaterial(render.sharedMaterial);
 
             mat.SetFloat("_Transparency", transparency);
+            render.material = mat;
         }
 
         StartCoroutine(CloakingCoroutine(cloakingTimer));
