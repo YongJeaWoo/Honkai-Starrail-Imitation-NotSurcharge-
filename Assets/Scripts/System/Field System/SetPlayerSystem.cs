@@ -32,6 +32,7 @@ public class SetPlayerSystem : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(player.name);
         CharacterChange();
     }
 

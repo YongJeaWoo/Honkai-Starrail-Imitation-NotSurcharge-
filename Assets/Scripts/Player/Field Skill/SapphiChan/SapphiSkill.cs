@@ -23,12 +23,11 @@ public class SapphiSkill : FieldSkill
     {
         var animator = attack.GetAnimator();
         animator.SetTrigger(skillAnimationText);
+        FieldSkill();
     }
 
-    public void FieldSkillEvent()
+    private void FieldSkill()
     {
-        //Instantiate(attackParticle, transform.position, Quaternion.identity);
-
         Collider[] Enemy = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider obj in Enemy)
         {
@@ -39,10 +38,8 @@ public class SapphiSkill : FieldSkill
                 var enemyList = enemyZone.GetFieldEnemies();
                 foreach (var enemy in enemyList)
                 {
-                    var fsm = enemy.GetComponent<EnemyFSM>();
                     var anim = enemy.GetComponent<Animator>();
 
-                    fsm.TransitionToState(E_EnemyState.Hit);
                     anim.speed = 0.3f;
                     StartCoroutine(DestroyCoroutine(obj.gameObject));
                 }
@@ -53,13 +50,14 @@ public class SapphiSkill : FieldSkill
     private IEnumerator DestroyCoroutine(GameObject enemy)
     {
         yield return new WaitForSeconds(1.3f);
-        //GameObject destroy = Instantiate(destroyParticle, obj.transform.position, Quaternion.identity);
-        //destroy.GetComponent<ParticleSystem>().Play();
+        GameObject destroy = Instantiate(destroyParticle, enemy.transform.position, Quaternion.identity);
+        destroy.GetComponent<ParticleSystem>().Play();
 
         enemyZone.CallRespawn();
         enemyZone.CharacterSkillCall();
         Destroy(enemy.gameObject);
 
-        yield return null;
+        yield return new WaitForSeconds(1f);
+        Destroy(destroy.gameObject);
     }
 }

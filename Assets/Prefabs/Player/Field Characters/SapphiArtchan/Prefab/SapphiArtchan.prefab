@@ -34241,7 +34241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03c2f885afa8b346932b03c22547b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyParticle: {fileID: 0}
+  destroyParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473,
+    type: 3}
   radius: 10
 --- !u!1 &4926866350892265357
 GameObject:
