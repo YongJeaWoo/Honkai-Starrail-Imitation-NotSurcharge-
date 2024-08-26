@@ -58218,6 +58218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac2fd8c16e06cf438df1f345ac196e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSound: {fileID: 8300000, guid: 3d8e19b93242d8e4095cea7032feaaa7, type: 3}
   healParticle: {fileID: 9017484664307500583, guid: 8ef76cdffdaa10c4081b84925025558c,
     type: 3}
 --- !u!1 &8987115318518833136

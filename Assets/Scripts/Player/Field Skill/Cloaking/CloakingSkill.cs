@@ -36,7 +36,7 @@ public class CloakingSkill : FieldSkill
     public override void UseFieldSkill()
     {
         if (isCloaking) return;
-
+        PlaySoundEvent();
         isCloaking = true;
 
         foreach (Renderer render in renderers)

@@ -23,6 +23,7 @@ public class SapphiSkill : FieldSkill
     {
         var animator = attack.GetAnimator();
         animator.SetTrigger(skillAnimationText);
+        PlaySoundEvent();
         FieldSkill();
     }
 

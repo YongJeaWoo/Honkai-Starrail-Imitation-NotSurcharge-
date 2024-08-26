@@ -34241,6 +34241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03c2f885afa8b346932b03c22547b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skillSound: {fileID: 8300000, guid: fca8594cbf5c1c543ae5ee385f64fef0, type: 3}
   destroyParticle: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473,
     type: 3}
   radius: 10

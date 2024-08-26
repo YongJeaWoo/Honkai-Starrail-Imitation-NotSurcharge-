@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 public class AttackSkill : FieldSkill
 {
     private CharacterAttack attack;

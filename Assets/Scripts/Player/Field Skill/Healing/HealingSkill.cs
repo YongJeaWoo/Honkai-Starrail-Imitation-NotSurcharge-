@@ -13,6 +13,7 @@ public class HealingSkill : FieldSkill
         Animator animator = GetComponentInParent<Animator>();
 
         animator.SetTrigger(skillAnimationText);
+        PlaySoundEvent();
         Instantiate(healParticle, transform.position, Quaternion.identity);
 
 
