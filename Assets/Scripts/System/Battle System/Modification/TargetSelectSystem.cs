@@ -72,13 +72,13 @@ public class TargetSelectSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             selectedIndex = (selectedIndex + 1) % enemyList.Count;
-            UpdateTarget();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             selectedIndex = (selectedIndex - 1 + enemyList.Count) % enemyList.Count;
-            UpdateTarget();
         }
+
+        UpdateTarget();
     }
 
     private void HandleSupportSkillSelection()
@@ -89,13 +89,13 @@ public class TargetSelectSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             selectedIndex = (selectedIndex - 1) % playerList.Count;
-            UpdateSupportTarget();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             selectedIndex = (selectedIndex + 1 + playerList.Count) % playerList.Count;
-            UpdateSupportTarget();
         }
+
+        UpdateSupportTarget();
     }
 
     public void UpdateTarget()
@@ -121,9 +121,12 @@ public class TargetSelectSystem : MonoBehaviour
         {
             targetUISystem.EnemyAllCycleUI(true);
             targetUISystem.PlayerAllCycleUI(false);
+            targetUISystem.EnemyTargeting(currentTarget, selectedIndex);
         }
-
-        targetUISystem.EnemyTargeting(currentTarget, selectedIndex);
+        else
+        {
+            Debug.Log("현재 타겟이 유효하지 않습니다.");
+        }
     }
 
     public void UpdateSupportTarget()

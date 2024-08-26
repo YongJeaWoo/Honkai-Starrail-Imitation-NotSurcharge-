@@ -108,13 +108,16 @@ public class SapphiArtchan : BattleCharacterState, IActionButton
             var targetSystem = battleSystem.GetComponentInChildren<TargetSelectSystem>();
 
             uiSystem.EnemyAllCycleUI(true);
+
             targetSystem.UpdateTarget();
+
             Camera.main.transform.position = targetSystem.OriginCameraPos;
             Camera.main.transform.rotation = targetSystem.OriginCameraRot;
             return;
         }
 
         selectedTarget = SelectTarget();
+
         if (selectedTarget == null)
         {
             return; // 타겟이 선택되지 않았으면 반환

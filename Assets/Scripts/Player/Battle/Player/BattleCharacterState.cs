@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // 능력치 관리
@@ -88,23 +89,16 @@ public class BattleCharacterState : BattleBehaviourComponent
         var targetSystem = battleSystem.GetComponentInChildren<TargetSelectSystem>();
         int selectedIndex = targetSystem.GetCurrentSelectedIndex();
 
-        var enemyList = battleSystem.GetEnemySystem().GetEnemyList();
+        var enemyList = battleSystem.GetEnemySystem().GetEnemyList().Where(enemy => enemy.IsAlive).ToList();
         if (enemyList == null || enemyList.Count == 0)
         {
             return null;
         }
 
-        // 살아있는 첫 번째 몬스터를 찾습니다.
-        for (int i = selectedIndex; i < enemyList.Count; i++)
-        {
-            if (enemyList[i].IsAlive)
-            {
-                return enemyList[i];
-            }
-        }
+        // 살아있는 몬스터를 찾습니다.
+        BattleBehaviourComponent selectedTarget = enemyList[selectedIndex];
 
-        // 모든 몬스터가 죽었다면 null을 반환합니다.
-        return null;
+        return selectedTarget;
     }
 
     public List<BattleBehaviourComponent> SelectAllTarget()
